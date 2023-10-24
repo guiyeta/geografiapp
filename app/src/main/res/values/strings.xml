@@ -3,4 +3,5 @@
     <string name="login_failed" />
     <string name="invalid_username" />
     <string name="invalid_password" />
+    <string name="titulo">Geografiapp</string>
 </resources>

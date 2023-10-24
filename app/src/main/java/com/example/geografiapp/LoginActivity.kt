@@ -3,8 +3,12 @@ package com.example.geografiapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.widget.Toolbar
+
 
 
 class LoginActivity : AppCompatActivity() {
@@ -14,9 +18,11 @@ class LoginActivity : AppCompatActivity() {
     lateinit var etPass: EditText
     lateinit var btnRegistrar: Button
     lateinit var btnIniciar: Button
+    lateinit var toolbar: Toolbar
 
     // Funcion que se ejecuta al iniciar un Activity
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -26,6 +32,10 @@ class LoginActivity : AppCompatActivity() {
         btnIniciar = findViewById(R.id.botonIniciar)
         btnRegistrar = findViewById(R.id.botonRegistrar)
 
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = resources.getString(R.string.titulo)
+
         //Agregamos funcionalidad al Boton
         btnRegistrar.setOnClickListener {
             val intentSignup = Intent(this, SignupActivity::class.java)
@@ -33,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intentSignup)
             // Eliminamos la Activity actual para sacarla de la Pila
             finish()
-       }
+        }
 
         //Agregamos funcionalidad al Boton
         btnIniciar.setOnClickListener {
@@ -56,4 +66,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
+
 }
